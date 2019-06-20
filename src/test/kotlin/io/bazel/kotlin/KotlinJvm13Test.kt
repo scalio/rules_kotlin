@@ -1,4 +1,4 @@
-package src.test.kotlin.io.bazel.kotlin
+package io.bazel.kotlin
 
 import org.junit.Test
 
