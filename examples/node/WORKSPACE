@@ -9,16 +9,20 @@ load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_reg
 kotlin_repositories()
 kt_register_toolchains()
 
-git_repository(
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+skylib_version = "0.8.0"
+http_archive(
     name = "bazel_skylib",
-    remote = "https://github.com/bazelbuild/bazel-skylib.git",
-    tag = "0.5.0",
+    type = "tar.gz",
+    url = "https://github.com/bazelbuild/bazel-skylib/releases/download/{}/bazel-skylib.{}.tar.gz".format (skylib_version, skylib_version),
+    sha256 = "2ef429f5d7ce7111263289644d233707dba35e39696377ebab8b0bc701f7818e",
 )
 
-git_repository(
+http_archive(
     name = "build_bazel_rules_nodejs",
-    remote = "https://github.com/bazelbuild/rules_nodejs.git",
-    tag = "0.11.4",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.29.0/rules_nodejs-0.29.0.tar.gz"],
+    sha256 = "1db950bbd27fb2581866e307c0130983471d4c3cd49c46063a2503ca7b6770a4",
 )
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
 
