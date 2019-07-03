@@ -137,7 +137,6 @@ _kt_toolchain = rule(
             default = [
                 Label("@" + _KT_COMPILER_REPO + "//:kotlin-stdlib-js"),
             ],
-            providers = [_KtJsInfo],
         ),
     },
     implementation = _kotlin_toolchain_impl,
