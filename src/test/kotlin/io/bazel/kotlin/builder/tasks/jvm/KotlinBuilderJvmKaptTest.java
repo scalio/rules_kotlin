@@ -48,7 +48,7 @@ public class KotlinBuilderJvmKaptTest {
   private static final Consumer<KotlinJvmTestBuilder.TaskBuilder> ADD_AUTO_VALUE_PLUGIN =
       (c) -> {
         c.addAnnotationProcessors(AUTO_VALUE_ANNOTATION_PROCESSOR);
-        c.addDirectDependencies(AUTO_VALUE, KOTLIN_STDLIB);
+        c.addDirectDependencies(AUTO_VALUE, KOTLIN_ANNOTATIONS, KOTLIN_STDLIB);
       };
 
   @Test

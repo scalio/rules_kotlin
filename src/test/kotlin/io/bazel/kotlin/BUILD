@@ -63,6 +63,11 @@ kt_rules_e2e_test(
     friends = ["//src/test/data/jvm/basic:test_friends_library"],
 )
 
+kt_rules_e2e_test(
+    name = "KotlinJvm13Test",
+    srcs = ["KotlinJvm13Test.kt"],
+)
+
 test_suite(
     name = "assertion_tests",
     tests = [
@@ -70,6 +75,7 @@ test_suite(
         "KotlinJvmDaggerExampleTest",
         "KotlinJvmFriendsVisibilityTest",
         "KotlinJvmKaptAssertionTest",
+        "KotlinJvm13Test",
     ],
 )
 
