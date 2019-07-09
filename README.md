@@ -3,6 +3,7 @@
 [Skydoc documentation](https://bazelbuild.github.io/rules_kotlin)
 
 # Announcements
+* <b>July 4, 2019.</b> Kotlin 1.3 support with multiply build bugfixes fixes.
 * <b>April 1, 2019.</b> [Roadmap](https://github.com/bazelbuild/rules_kotlin/blob/master/ROADMAP.md) for rules_kotlin published.
 * <b>February 20, 2019.</b> [Future directions](https://github.com/bazelbuild/rules_kotlin/issues/174) of rules_kotlin.
 * <b>August 14, 2018.</b> Js support. No documentation yet but see the nested example workspace `examples/node`.
@@ -21,7 +22,7 @@
 
 # Overview 
 
-These rules were initially forked from [pubref/rules_kotlin](http://github.com/pubref/rules_kotlin).
+These rules were forked from [bazelbuild/rules_kotlin](https://github.com/bazelbuild/rules_kotlin) and initially forked from [pubref/rules_kotlin](http://github.com/pubref/rules_kotlin).
 Key changes:
 
 * Replace the macros with three basic rules. `kt_jvm_binary`, `kt_jvm_library` and `kt_jvm_test`.
@@ -50,13 +51,14 @@ this:
 ```build
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-rules_kotlin_version = "67f4a6050584730ebae7f8a40435a209f8e0b48e"
+rules_kotlin_version = "VERSION_0.1"
 
 http_archive(
     name = "io_bazel_rules_kotlin",
-    urls = ["https://github.com/bazelbuild/rules_kotlin/archive/%s.zip" % rules_kotlin_version],
+    urls = ["https://github.com/scalio/rules_kotlin/archive/%s.zip" % rules_kotlin_version],
     type = "zip",
-    strip_prefix = "rules_kotlin-%s" % rules_kotlin_version
+    strip_prefix = "rules_kotlin-%s" % rules_kotlin_version,
+    sha256 = "7a463fa65b49fb686ad0e24eca7a4a8f6dc884bb7392ad8dcbfe44e0616091e5"
 )
 
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
@@ -78,6 +80,17 @@ kt_jvm_library(
         "//path/to/dependency",
     ],
 )
+
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_android_library")
+
+kt_android_library(
+    name = "package_name",
+    srcs = glob(["*.kt"]),
+    deps = [
+        "//path/to/dependency",
+    ]
+)
+
 ```
 
 # License
@@ -86,6 +99,4 @@ This project is licensed under the [Apache 2.0 license](LICENSE), as are all con
 
 # Contributing
 
-See the [CONTRIBUTING](CONTRIBUTING.md) doc for information about how to contribute to
-this project.
-
+Pull Requests are welcome.
