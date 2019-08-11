@@ -1,6 +1,6 @@
 ![Bazel Kotlin at Scalio](scalio-bazel-kotlin.svg)
 
-See our Blog Post [scalio/rules_kotlin](https://scal.io/blog/bazel-with-android-kotlin) "Bazel with Android + Kotlin"
+See our Blog Post, [Bazel with Android + Kotlin](https://scal.io/blog/bazel-with-android-kotlin)
 
 [![Build status](https://badge.buildkite.com/a8860e94a7378491ce8f50480e3605b49eb2558cfa851bbf9b.svg)](https://buildkite.com/bazel/kotlin-postsubmit)
 
